@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 require("./config/database")
 const morgan = require('morgan');
+const cors = require('cors');
 
 //models
 
@@ -16,6 +17,7 @@ const profilesRouter = require('./controllers/profiles');
 const verifyToken = require('./middleware/verify-token');
 //=================================
 //middleware
+app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
 
